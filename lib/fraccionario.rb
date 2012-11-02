@@ -1,20 +1,25 @@
-Class Fraccionario
+class Fraccionario
 
 	attr_reader :num, :deno
 
+	include Comparable
+	include Enumerable
+
+	
 #inicializamos el numerador y el denominador
 	def initialize (num,deno)
+
 		@num = num 
-		@deno = deno
+		@deno = deno 
 	end
 
 	def mostrar_por_pantalla
 	
-		"La fraccion es : #{@num} /  #{@deno}"
+		 "#{@num}/#{@deno}"
 	end
 
 	def mostrar_resultado
-		"El resultado es : " @num.to_f/@deno.to_f
+		 @num.to_f/@deno.to_f
 	end
 
 
@@ -25,6 +30,7 @@ Class Fraccionario
 			true
 		else 
 			false
+		end
 	end
 	
 	def abs

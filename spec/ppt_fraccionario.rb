@@ -1,10 +1,14 @@
-require 'lib/fraccionario'
+require "fraccionario"
 
 describe Fraccionario do 
 	before :each do 
 	@numero = Fraccionario.new(4,5)
 	end
 
+	it "Debe estar en su forma reducida" do
+		@nuevo = Fraccionario.new(20,2)
+		@nuevo.mostrar_por_pantalla.should == "20/2"
+	end
 
 	it "Debe existir un numerador" do 
 		@numero.num.is_a?(Numeric).should == true
@@ -35,7 +39,7 @@ describe Fraccionario do
 	end
 	
 	it "Se debe calcular el valor absoluto de una fraccion con el metodo abs" do 
-		 @nuevo = Fraccionario.new (4,5)
+		 @nuevo = Fraccionario.new(4,5)
 		 @nuevo = @nuevo.abs
 		 @nuevo.mostrar_por_pantalla.should == "4/5"
 	end
@@ -69,18 +73,18 @@ describe Fraccionario do
 	end
 	
 	it "  Se debe de poder comprobar si una fracion es menor que otra" do
-		(@numero < (Fraccionario.new (4,6))).should == true
+		(@numero < (Fraccionario.new(5,5))).should == true
 	end
 	
 	it "Se debe de poder comprobar si una fracion es mayor que otra" do
-		(@numero < (Fraccionario.new (5,4))).should == true
+		(@numero > (Fraccionario.new(3,5))).should == true
 	end
 	
 	it "  Se debe de poder comprobar si una fracion es menor o igual que otra" do
-		(@numero < (Fraccionario.new (4,5))).should == true
+		(@numero <= (Fraccionario.new(4,5))).should == true
 	end 
 	
 	it "Se debe de poder comprobar si una fracion es mayor o igual que otra" do
-		(@numero < (Fraccionario.new (4,5))).should == true
+		(@numero >= (Fraccionario.new(4,5))).should == true
 	end
 end
